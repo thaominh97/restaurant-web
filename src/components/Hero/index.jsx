@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
 import Navbar from '../Navbar'
 import SideBar from '../Sidebar'
 import {
@@ -10,11 +10,16 @@ import {
     HeroBtn
 } from './HeroElements'
 function Hero() {
+    const [isOpen, setIsOpen] = useState(false);
+    const toggle = () => {
+        setIsOpen(!isOpen)
+    };
+
     return (
         <>
             <HeroContainer>
-                <Navbar />
-                <SideBar />
+                <Navbar toggle={toggle}/>
+                <SideBar isOpen={isOpen} toggle={toggle}/>
                 <HeroContent>
                     <HeroItems>
                         <HeroH1>Greatest Pizza Ever</HeroH1>

@@ -1,20 +1,21 @@
 import React from 'react'
-import { Bars, Nav, NavIcon, NavLink } from './Navbar'
+import { Bars, Nav, NavIcon, NavLink, NavCart } from './Navbar'
 import { navItems } from '../Data'
-function Navbar({ onClick }) {
+function Navbar({ toggle }) {
     return (
         <>
             <Nav >
                 {navItems.map((item, index) =>
                     <NavLink
                         key={index}
-                        onClick={() => onClick()}
                         to={item.path}
                     >
                         {item.title}
-                    </NavLink>)}
+                    </NavLink>).slice(0,1)}
+                    
+                <NavCart/>
 
-                <NavIcon>
+                <NavIcon onClick={() => toggle()}>
                     <p>Menu</p>
                     <Bars />
                 </NavIcon>

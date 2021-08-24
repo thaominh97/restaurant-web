@@ -2,11 +2,11 @@ import React from 'react'
 import { CloseIcon, Icon, SidebarContainer, SidebarLink, SidebarMenu, SidebarRoute, SideBtnWrap } from './Sidebar'
 import { navItems } from '../Data'
 
-function SideBar() {
+function SideBar({ isOpen, toggle }) {
     return (
         <>
-            <SidebarContainer>
-                <Icon>
+            <SidebarContainer isOpen={isOpen} onClick={toggle}>
+                <Icon onClick={toggle}>
                     <CloseIcon />
                 </Icon>
                 <SidebarMenu>
